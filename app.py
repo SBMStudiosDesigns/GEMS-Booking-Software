@@ -180,7 +180,7 @@ class ConsoleApp():
 
     def optionB_remove_booking(self):
         
-        b_title = "   Option B: Enter New Booking   "
+        b_title = "   Option B: Remove A Booking   "
         b_heading = "[plum4 on grey69]Wish to proceed with task?[plum4 on grey69]"
 
         console.print(b_title, style=styleHeading)
@@ -221,9 +221,12 @@ class ConsoleApp():
                             
                             confirm_removal = Prompt.ask(msg2)
 
-                            if confirm_removal == True:
 
-                                self.booking_sheet[room_no] = []
+                            ## Issue with booking removal starts here
+                            confirmation = confirm_removal.upper()
+                            if confirmation == 'Y':
+
+                                self.booking_sheet[room_no] = ['']
 
                                 msg3 = f'\nRoom #{room_no} is now empty\nBooking removal process now completed!\nNow returning back to the main menu...'
                                 console.print(msg3, style=styleSuccess)   
@@ -261,7 +264,7 @@ class ConsoleApp():
 
     def optionC_dump_table(self):
 
-        c_title = "   Option B: Enter New Booking   "
+        c_title = "   Option C: Dump Booking Sheet   "
         c_heading = "[plum4 on grey69]Wish to proceed with task?[plum4 on grey69]"
 
         console.print(c_title, style=styleHeading)
